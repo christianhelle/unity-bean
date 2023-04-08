@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -58,13 +59,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Rotate()
     {
-        if (Input.GetMouseButton(0))
-        {
-            transform.Rotate(Vector3.up * Input.GetAxis("Mouse X"));
-            camRotation.x -= Input.GetAxis("Mouse Y");
-            camRotation.x = Mathf.Clamp(camRotation.x, minAngle, maxAngle);
-            Camera.main.transform.localEulerAngles = camRotation;
-        }
-
+        transform.Rotate(Vector3.up * Input.GetAxis("Mouse X"));
+        camRotation.x -= Input.GetAxis("Mouse Y");
+        camRotation.x = Mathf.Clamp(camRotation.x, minAngle, maxAngle);
+        Camera.main.transform.localEulerAngles = camRotation;
     }
 }
