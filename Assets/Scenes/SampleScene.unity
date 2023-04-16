@@ -843,7 +843,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838568013}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b5e9c3b0a44dfb54bb03ca907baadbc1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
@@ -1021,5 +1021,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor
       objectReference: {fileID: 0}
+    - target: {fileID: 7390284612423221230, guid: 96c6bcc20eedce84684277b524b2e668, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: b5e9c3b0a44dfb54bb03ca907baadbc1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96c6bcc20eedce84684277b524b2e668, type: 3}
