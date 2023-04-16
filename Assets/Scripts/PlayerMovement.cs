@@ -6,6 +6,9 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] int MovementSpeed = 5;
     [SerializeField] int JumpForce = 5;
+    [SerializeField] Transform groundCheck;
+    [SerializeField] LayerMask ground;
+    
     Rigidbody rb;
 
     private Vector3 camRotation;
@@ -32,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             Vector3 velocity = rb.velocity;
             velocity.y = JumpForce;
@@ -55,6 +58,11 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 cameraRelativeMovement = forwardRelativeVerticalInput + rightRelativeHorizontalInput;
         this.transform.Translate(cameraRelativeMovement * MovementSpeed * Time.deltaTime, Space.World);
+    }
+
+    bool IsGrounded()
+    {
+        return Physics.CheckSphere(groundCheck.position, 0.1f, ground);
     }
 
     void Rotate()
